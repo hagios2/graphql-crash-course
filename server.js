@@ -2,7 +2,7 @@
 // import {graphqlHTTP} from 'express-graphql'
 // import schema from './schema.js';
 import { ApolloServer, gql } from 'apollo-server'
-
+import { products, reviews, categories} from './db.js'
 
 const typeDefs = gql`
     type Query{
@@ -36,15 +36,7 @@ const resolvers = {
         },
 
         products: () => {
-            return [
-                {
-                    name: "Polo Shirt",
-                    description: 'this is a polo shirt',
-                    price: 300.00,
-                    onSale: true,
-                    quantity: 5
-                }
-            ]
+            return products
         }
     }
 }

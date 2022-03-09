@@ -286,8 +286,8 @@ const products = [
     },
   ];
   
-  exports.db = {
+  export {
     products,
     categories,
     reviews,
-  };
+  }

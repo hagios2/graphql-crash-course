@@ -13,7 +13,6 @@ const typeDefs = gql`
         product(id: ID!): Product,
         categories: [Category],
         category(id: ID): Category,
-        categoryProduct(id: ID): CategoryProduct
     }
 
     type Product {
@@ -28,18 +27,8 @@ const typeDefs = gql`
 
     type Category {
         id: String!,
-        name: String!
-    }
-
-    type CategoryProduct {
-        id: String!,
         name: String!,
-        description: String!,
-        quantity: Int!,
-        price: Float!,
-        image: String!
-        onSale: Boolean!
-        categoryId: String!
+        products: [Product!]
     }
 `
 
@@ -59,11 +48,14 @@ const resolvers = {
 
         category: (parent, args, context ) => {
             return categories.find(c => c.id === args.id)
-        },
+        }
+    },
 
-        categoryProduct: (parent, args, context ) => {
-            return categoryProduct.find(p => p.categoryId === args.id)
-        },
+    //create a resolver for category products
+    Category: {
+        products: (parent, args, context) => {
+            return products.filter(p => p.categoryId === parent.id)
+        }
     }
 }
 

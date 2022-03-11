@@ -3,15 +3,15 @@ export default {
         return products
     },
 
-    product: (parent, args, { products} ) => {
-        return products.find(p => p.id === args.id)
+    product: (parent, { id }, { products} ) => {
+        return products.find(p => p.id === id)
     },
 
     categories: () => {
         return categories
     },
 
-    category: (parent, args, { categories } ) => {
-        return categories.find(c => c.id === args.id)
+    category: (parent, { id }, { categories } ) => {
+        return categories.find(c => c.id === id)
     }
 }

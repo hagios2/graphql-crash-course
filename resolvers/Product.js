@@ -1,7 +1,5 @@
-import { categories } from '../db.js'
-
 export default {
-    category: (parent, args, context) => {
+    category: (parent, args, { categories }) => {
         return categories.find(c => c.id === parent.categoryId)
     }
 }

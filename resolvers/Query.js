@@ -1,11 +1,9 @@
-import { products, categories } from '../db.js'
-
 export default {
     products: () => {
         return products
     },
 
-    product: (parent, args, context ) => {
+    product: (parent, args, { products} ) => {
         return products.find(p => p.id === args.id)
     },
 
@@ -13,7 +11,7 @@ export default {
         return categories
     },
 
-    category: (parent, args, context ) => {
+    category: (parent, args, { categories } ) => {
         return categories.find(c => c.id === args.id)
     }
 }

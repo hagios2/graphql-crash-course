@@ -100,7 +100,7 @@ const typeDefs = gql`
         name: String,
         test: String,
         aray: [Int],
-        products: [Product!]!,
+        products(filter: ProductFilterInput): [Product!]!,
         product(id: ID!): Product,
         categories: [Category],
         category(id: ID): Category,
@@ -121,7 +121,7 @@ const typeDefs = gql`
     type Category {
         id: String!,
         name: String!,
-        products: [Product!]
+        products(filter: ProductFilterInput): [Product!]
     }
 
     type Review {
@@ -131,6 +131,10 @@ const typeDefs = gql`
         rating: Int!
         comment: String!,
         productId: String!
+    },
+
+    input ProductFilterInput {
+        onSale: Boolean
     }
 `
 

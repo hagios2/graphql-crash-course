@@ -1,5 +1,8 @@
 export default {
-    products: (parent, args, { products }) => {
+    products: (parent, { filter }, { products }) => {
+        if (filter) {
+            return products.filter(p => p.onSale === filter.onSale)
+        }
         return products
     },
     product: (parent, { id }, { products } ) => {

@@ -1,5 +1,8 @@
 export default {
-    products: ( { id: categoryId }, args, { products }) => {
-        return products.filter(p => p.categoryId === categoryId)
+    products: ( { id }, { filter }, { products }) => {
+        if (filter) {
+            return products.filter(p => p.onSale === filter.onSale && p.categoryId === id)
+        }
+        return products.filter(p => p.categoryId === id)
     }
 }

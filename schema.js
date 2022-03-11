@@ -114,13 +114,23 @@ const typeDefs = gql`
         price: Float!,
         image: String!
         onSale: Boolean!,
-        category: Category
+        category: Category,
+        reviews: [Review!]
     }
 
     type Category {
         id: String!,
         name: String!,
         products: [Product!]
+    }
+
+    type Review {
+        id: String!,
+        title: String!,
+        date: String!,
+        rating: Int!
+        comment: String!,
+        productId: String!
     }
 `
 

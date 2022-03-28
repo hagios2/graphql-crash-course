@@ -133,8 +133,16 @@ const typeDefs = gql`
         productId: String!
     },
 
+    type Mutation {
+        addCategory(input: AddCategoryInput!): Category!
+    }
+
     input ProductFilterInput {
         onSale: Boolean
+    },
+
+    input AddCategoryInput {
+        name: String!
     }
 `
 

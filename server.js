@@ -6,6 +6,7 @@ import { products, reviews, categories} from './db.js'
 import Product from './resolvers/Product.js'
 import Category from './resolvers/Category.js'
 import Query from './resolvers/Query.js'
+import Mutation from './resolvers/Mutation.js'
 
 
 
@@ -14,7 +15,8 @@ const server = new ApolloServer({
     resolvers: {
         Product,
         Query,
-        Category
+        Category,
+        Mutation
     }, 
     context: {
         products,
